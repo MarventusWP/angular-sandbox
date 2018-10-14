@@ -32,18 +32,19 @@ export class NewUserComponent implements OnInit, OnDestroy {
 			this.userSvc.addUser(this.userName);
 			this.userName = '';
 		}
+		this.checkUserExists();
 	}
 
 
-	checkUserExists(event){
+	checkUserExists(event?){
 		let self = this;
 		clearTimeout(this.userCheckTimer);
 		this.userCheckTimer = setTimeout( () => {
-			if(event.keyCode === 13 ){
+			if(event && event.keyCode === 13 ){
 				this.addRemoveUser();
 			}
 			self.userExists = this.users.length > -1 && this.users.indexOf(this.userName) > -1;
-			self.enableAdd = !self.userExists;
+			self.enableAdd = !self.userExists && this.userName !== '';
 		}, 250);
 	}
 
