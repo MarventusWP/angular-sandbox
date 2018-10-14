@@ -1,0 +1,25 @@
+.user {
+	position: relative;
+	
+	i {
+		border-left: 1px solid #bbb;
+		color: #777;
+		cursor: pointer;
+		display: none;
+		font-size: 0.9rem;
+		padding-left: 0.5rem;
+		position: absolute;
+		right: 0;
+		top: calc(50% - .45rem);
+	
+		&:hover {
+			color: #dc3545;
+		}
+	}
+
+	&:hover {
+		i {
+			display: initial;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+<h2>User List:</h2>
+<div class="user-list">
+	<div *ngIf="users?.length < 1">
+		<p><em>No users added.</em></p>
+	</div>
+	<ng-container *ngIf="users?.length > 0">
+		<div class="user" *ngFor="let user of users; let i = index">
+			<p><strong>{{i + 1}}. </strong><span>{{user}}</span><i class="fas fa-minus-circle" (click)="removeUser(i)"></i></p>
+		</div>
+	</ng-container>
+</div>

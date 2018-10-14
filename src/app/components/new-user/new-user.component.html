@@ -1,0 +1,9 @@
+<form>
+	<div class="form-group">
+		<input [(ngModel)]="userName" (keyup)="checkUserExists($event)"
+			name="userName" class="form-control form-control-lg" type="text" placeholder="User Name">
+	</div>
+</form>
+<button class="btn btn-primary" type="button"
+	(click)="addRemoveUser($event)" *ngIf="!userExists" [disabled]="!enableAdd">Add User</button>
+<button class="btn btn-danger" type="button" (click)="addRemoveUser()" *ngIf="userExists">Remove User</button>
